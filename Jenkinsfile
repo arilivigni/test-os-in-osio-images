@@ -24,8 +24,8 @@ mavenNode {
         sh '''
           #git config user.name $(git log -n1 --format='%cn' <SHA> )
           #git config user.email $(git log -n1 --format='%ce' <SHA> )
-          git config user.name "$(git log -n1 --format='%cn')"
-          git config user.email "$(git log -n1 --format='%ce')"
+          #git config user.name "$(git log -n1 --format='%cn')"
+          #git config user.email "$(git log -n1 --format='%ce')"
         '''
         mavenCanaryRelease {
           version = canaryVersion
