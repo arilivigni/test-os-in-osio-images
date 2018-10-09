@@ -2,8 +2,6 @@
 @Library('github.com/arilivigni/fabric8-pipeline-library@master')
 def canaryVersion = "1.0.${env.BUILD_NUMBER}"
 def utils = new io.fabric8.Utils()
-def gitUser = config.gitUser
-def gitEmail = config.gitEmail
 
 mavenNode {
   checkout scm
@@ -24,8 +22,6 @@ mavenNode {
         sh '''
             #git config --global user.name arilivigni
             #git config --global user.email arilivigni@gmail.com
-            git config --global user.name ${gitUser}
-            git config --global user.email ${gitEmail}
             ls -la /root
             env
       '''
