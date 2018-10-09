@@ -19,6 +19,12 @@ mavenNode {
   } else if (utils.isCD()) {
     echo 'NOTE: running pipelines for the first time will take longer as build and base docker images are pulled onto the node'
     container(name: 'maven', shell:'/bin/bash') {
+        sh '''
+            git config --global user.name arilivigni
+            git config --global user.email arilivigni@gmail.com
+            ls -la /root
+            cat /etc/redhat-release
+      '''
       stage('Build Image') {
         mavenCanaryRelease {
           version = canaryVersion
