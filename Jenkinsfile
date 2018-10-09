@@ -23,7 +23,7 @@ mavenNode {
             git config --global user.name arilivigni
             git config --global user.email arilivigni@gmail.com
             ls -la /root
-            cat /etc/redhat-release
+            env
       '''
       stage('Build Image') {
         mavenCanaryRelease {
