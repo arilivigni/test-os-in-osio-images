@@ -20,8 +20,10 @@ mavenNode {
     echo 'NOTE: running pipelines for the first time will take longer as build and base docker images are pulled onto the node'
     container(name: 'maven', shell:'/bin/bash') {
         sh '''
-            git config --global user.name arilivigni
-            git config --global user.email arilivigni@gmail.com
+            #git config --global user.name arilivigni
+            #git config --global user.email arilivigni@gmail.com
+            git config --global user.name ${gitUser}
+            git config --global user.email ${gitEmail}
             ls -la /root
             env
       '''
