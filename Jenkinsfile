@@ -21,6 +21,12 @@ mavenNode {
     echo 'NOTE: running pipelines for the first time will take longer as build and base docker images are pulled onto the node'
     container(name: 'maven', shell:'/bin/bash') {
       stage('Build Image') {
+        sh '''
+          #git config user.name $(git log -n1 --format='%cn' <SHA> )
+          #git config user.email $(git log -n1 --format='%ce' <SHA> )
+          git config user.name arilivigni
+          git config user.email arilivigni@gmail.com
+        '''
         mavenCanaryRelease {
           version = canaryVersion
         }
