@@ -7,7 +7,7 @@ def stashName = "buildpod.${env.JOB_NAME}.${env.BUILD_NUMBER}".replace('-', '_')
 def envStage = utils.environmentNamespace('stage')
 def envProd = utils.environmentNamespace('run')
 def setupScript = null
-
+// test the pr
 mavenNode {
   checkout scm
   if (utils.isCI()) {
